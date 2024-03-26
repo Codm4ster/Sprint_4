@@ -1,4 +1,4 @@
-package ru.praktikum_services.qa_scooter;
+package ru.praktikum.scooter;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;

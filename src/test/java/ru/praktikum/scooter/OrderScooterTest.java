@@ -1,12 +1,12 @@
-package ru.praktikum_services.qa_scooter;
+package ru.praktikum.scooter;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import ru.praktikum_services.qa_scooter.pages.MainPage;
-import ru.praktikum_services.qa_scooter.pages.OrderPage;
+import ru.praktikum.scooter.pages.MainPage;
+import ru.praktikum.scooter.pages.OrderPage;
 
 import static org.junit.Assert.assertTrue;
 

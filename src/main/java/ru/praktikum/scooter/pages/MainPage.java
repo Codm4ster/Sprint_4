@@ -1,4 +1,4 @@
-package ru.praktikum_services.qa_scooter.pages;
+package ru.praktikum.scooter.pages;
 
 
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.praktikum_services.qa_scooter.EnvConfig;
+import ru.praktikum.scooter.EnvConfig;
 
 import java.time.Duration;
 
@@ -20,9 +20,9 @@ public class MainPage {
     //кнопка "Заказать", которая находится в теле главной страницы
     private final By buttonOrderInBody = By.xpath(".//div[contains(@class, 'Home_FinishButton')]/button[contains(@class, 'Button_Middle')]");
     //блок "Вопросы о важном"
-    private final By faqBlockOfQuestions = By.className("accordion");
+    private final By faqBlockQuestions = By.className("accordion");
     //ответ на выбранный вопрос
-    private final By answerToTheQuestion = By.xpath(".//*[@class='accordion__panel' and not(@hidden)]/p");
+    private final By answerQuestion = By.xpath(".//*[@class='accordion__panel' and not(@hidden)]/p");
 
     private final WebDriver driver;
     public MainPage(WebDriver driver) {
@@ -52,14 +52,14 @@ public class MainPage {
     }
 
     //Прокручиваем страницу до блока "Вопросы о важном"
-    public MainPage scrollToFaqBlockOfQuestions(){
-        WebElement element = driver.findElement(faqBlockOfQuestions);
+    public MainPage scrollFaqBlockQuestions(){
+        WebElement element = driver.findElement(faqBlockQuestions);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
         return this;
     }
 
     //Нажимаем на вопрос
-    public MainPage clickOnTheQuestion(int numberQuestion) {
+    public MainPage clickQuestion(int numberQuestion) {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.id("accordion__heading-" + numberQuestion)));
         driver.findElement(By.id("accordion__heading-" + numberQuestion)).click();
@@ -67,8 +67,8 @@ public class MainPage {
     }
 
     //Получаем текст ответа на выбранный вопрос
-    public String gettingActualAnswer(){
+    public String getActualAnswer(){
 
-        return driver.findElement(answerToTheQuestion).getText();
+        return driver.findElement(answerQuestion).getText();
     }
 }

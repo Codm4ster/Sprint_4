@@ -1,4 +1,4 @@
-package ru.praktikum_services.qa_scooter;
+package ru.praktikum.scooter;
 
 public class EnvConfig {
     public static final String BASE_URL = "https://qa-scooter.praktikum-services.ru/";
